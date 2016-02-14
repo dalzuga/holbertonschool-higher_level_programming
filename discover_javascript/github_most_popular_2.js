@@ -9,10 +9,6 @@ var options = {
     }
 };
 
-var f = function(jsonString) {
-    console.log(typeof jsonString);
-    console.log(jsonString)};
-
 function streamToString(stream, cb) {
     const chunks = [];
     stream.on('data', (chunk) => {
@@ -25,7 +21,13 @@ function streamToString(stream, cb) {
 
 var req = https.request(options, function(res)
 			{
-			    streamToString(res, f); 
+			    streamToString(res, function(jsonString)
+					   {
+					       console.log(typeof jsonString);
+					       console.log(jsonString)
+					   }
+					  );
 			}
-		       );
+
+		       ); 
 req.end();
