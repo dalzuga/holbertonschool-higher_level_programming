@@ -36,8 +36,6 @@ var req = https.request(options, function(res)
 			{
 			    streamToString(res, function(jsonString)
 					   {
-					       console.log(typeof jsonString);
-					       console.log(jsonString);
 					       writeToFile(jsonString);
 					   }
 					  );
