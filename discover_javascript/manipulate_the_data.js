@@ -38,7 +38,7 @@ var req = https.request(options, function(res)
 		   {
 		       var jsonParse=JSON.parse(jsonString);
 		       jsonParse.items.map(function(o, i) {
-			   var final=[jsonParse.items[i].full_name].join();
+			   var final=[o.full_name].join();
 			   console.log(final);
 			   return 0;})
 		   }
