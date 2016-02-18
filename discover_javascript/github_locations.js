@@ -59,21 +59,15 @@ function daniel(){
 
     var req2 = https.request(urloptions, function(res) {
 	    streamToString(res, function(jsonString){
-		    jsonParse2=JSON.parse(jsonString);
-		       
-		    if (jsonParse2.location==undefined){
-			finalJson[l]= finalJson[l] || {};
-			finalJson[l]["full_name"]=fname;
-			finalJson[l]["location"]=null;
-		    }
-		    else{
-			finalJson[l]= finalJson[l] || {};
-			finalJson[l]["full_name"]=fname;
-			finalJson[l]["location"]=jsonParse2.location;
-		    }
+		jsonParse2=JSON.parse(jsonString);
+
+		finalJson[l]={
+		    full_name: fname,
+		    location: jsonParse2.location
+		};
 		    l++;
 		    log(writeit);
-		});
+	    });
 	});
     req2.end();
 }
