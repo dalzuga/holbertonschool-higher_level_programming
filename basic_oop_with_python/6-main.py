@@ -205,7 +205,7 @@ c2.set_center([0, 0])
 c2.name = "Mars"
 
 print "%s is %f%% inside %s" % (c2.name, c1.intersection_percentage(c2), c1.name)
-print "Expected: some positive number\n"
+print "Expected: 100%\n"
 
 print "if they switch places"
 c1 = Circle(5)
@@ -216,5 +216,5 @@ c2 = Circle(5)
 c2.set_center([0, 0])
 c2.name = "Earth"
 
-print "%s is %f%% inside %s" % (c2.name, c1.intersection_percentage(c2), c1.name)
+print "%s is %f%% inside %s" % (c1.name, c1.intersection_percentage(c2), c2.name)
 print "Expected: 100%\n"
