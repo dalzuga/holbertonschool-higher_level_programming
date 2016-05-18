@@ -24,7 +24,7 @@ class Square():
     def area(self):
         return self.__side_length ** 2
 
-    def __call__(self):
+    def __str__(self):
         str = ""
 
         '''print first row'''
