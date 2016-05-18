@@ -73,6 +73,7 @@ class Circle():
             ''' if they are different points '''
             ''' return 0% '''
             return 0;
+        ''' all points cases handled '''
 
         ''' case 3: '''
         ''' if they are concentric and r > R '''
@@ -83,8 +84,10 @@ class Circle():
             return (1.) * R2/r2 * 100.
         elif (d == 0):
             return 100;
+        ''' all concentric cases handled '''
 
         ''' case 4: '''
+        ''' if we got this far, they are non-concentric and not points '''
         ''' if one is inside the other and they do not kiss '''
         ''' return R2 / r2 % '''
         ''' if other is larger '''
@@ -93,6 +96,9 @@ class Circle():
             return (1.) * R2 / r2 * 100.
         elif (d + r < R):
             return 100
+        ''' all special cases handled '''
+        
+        ''' general case: '''
 
         area = r2 * math.acos((d2 + r2 - R2)/(2 * d * r)) + R2 * math.acos((d2 + R2 - r2)/(2 * d * R)) - (1./2) * math.sqrt((-d+r+R)*(d+r-R)*(d-r+R)*(d+r+R))
         
