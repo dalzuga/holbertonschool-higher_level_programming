@@ -42,6 +42,9 @@ class Circle():
 
     def intersection_percentage(self, c_bis):
 
+        if (self.intersection(c_bis) == 0):
+            return 0;
+
         delta_x = c_bis.get_center()[0] - self.get_center()[0]
         delta_y = c_bis.get_center()[1] - self.get_center()[1]
         r = self.__radius
