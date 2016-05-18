@@ -56,6 +56,6 @@ class Circle():
         ''' distance between the centers '''
         d = math.sqrt(delta_x ** 2 + delta_y ** 2)
 
-        area = r2 * math.acos((d2 + r2 - R2)/(2 * d * r)) + R2 * math.acos((d2 + R2 - r2)/(2 * d * R)) - (.5) * math.sqrt((-d+r+R)*(d+r-R)*(d-r+R)*(d+r+R))
+        area = r2 * math.acos((d2 + r2 - R2)/(2 * d * r)) + R2 * math.acos((d2 + R2 - r2)/(2 * d * R)) - (1./2) * math.sqrt((-d+r+R)*(d+r-R)*(d-r+R)*(d+r+R))
         
         return  ((area / (math.pi * r2)) * 100)
