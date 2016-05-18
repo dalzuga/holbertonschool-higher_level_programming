@@ -34,7 +34,7 @@ class Square():
         ''' print a new line '''
         str+="\n"
 
-        ''' print middle row '''
+        ''' print middle rows '''
         for i in range(0, self.__side_length - 2):
 
             ''' print the first character '''
