@@ -42,10 +42,11 @@ class Circle():
         return 1
 
     def intersection_percentage(self, c_bis):
+        ''' case 1: '''
         ''' if they do not overlap '''
         ''' return 0 percent '''
         if (self.intersection(c_bis) == 0):
-            return 0;
+            return 0
 
         ''' center distance with respect to x-axis and y-axis '''
         delta_x = c_bis.get_center()[0] - self.get_center()[0]
@@ -61,6 +62,17 @@ class Circle():
         d2 = delta_x ** 2 + delta_y ** 2
         ''' distance between the centers '''
         d = math.sqrt(delta_x ** 2 + delta_y ** 2)
+
+        ''' case 2: '''
+        ''' if they are points '''
+        if (r == 0 and R == 0 and d == 0):
+            ''' if they are the same point '''
+            ''' return 100% '''
+            return 100
+        elif (r == 0 and R == 0):
+            ''' if they are different points '''
+            ''' return 0% '''
+            return 0;
 
         area = r2 * math.acos((d2 + r2 - R2)/(2 * d * r)) + R2 * math.acos((d2 + R2 - r2)/(2 * d * R)) - (1./2) * math.sqrt((-d+r+R)*(d+r-R)*(d-r+R)*(d+r+R))
         
