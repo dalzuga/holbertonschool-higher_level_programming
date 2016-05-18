@@ -42,7 +42,8 @@ class Circle():
         return 1
 
     def intersection_percentage(self, c_bis):
-
+        ''' if they do not overlap '''
+        ''' return 0 percent '''
         if (self.intersection(c_bis) == 0):
             return 0;
 
