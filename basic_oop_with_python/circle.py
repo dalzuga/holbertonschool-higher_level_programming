@@ -76,11 +76,11 @@ class Circle():
 
         ''' case 3: '''
         ''' if they are concentric and r > R '''
-        ''' return R2/r2 '''
+        ''' return R2/r2 %'''
         ''' if they are concentric and r <= R '''
         ''' return 100% '''
         if (d == 0 and r > R):
-            return (1.) * R2/r2
+            return (1.) * R2/r2 * 100.
         elif (d == 0):
             return 100;
 
