@@ -84,3 +84,17 @@ if c1.intersection(c2):
 else:
     print "No intersection between %s and %s" % (c1.name, c2.name)
 print "Expected: overlap, so yes \"intersection\" as defined on the intranet"
+
+c1 = Circle(0)
+c1.set_center([0, 0])
+c1.name = "Mercury"
+
+c2 = Circle(0)
+c2.set_center([0, 0])
+c2.name = "Mercury"
+
+if c1.intersection(c2):
+    print "Intersection between %s and %s" % (c1.name, c2.name)
+else:
+    print "No intersection between %s and %s" % (c1.name, c2.name)
+print "Expected: yes, they are the same point"
