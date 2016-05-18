@@ -32,19 +32,14 @@ class Circle():
         delta_x = c_bis.get_center()[0] - self.get_center()[0]
         delta_y = c_bis.get_center()[1] - self.get_center()[1]
 
-        ''' if r^2 < a^2 + b^2 '''
-        ''' they overlap '''
+        ''' if (r+R)^2 < a^2 + b^2 '''
+        ''' they do not overlap '''
         if (sum_radii ** 2 < delta_x ** 2 + delta_y ** 2):
             return 0
         
         ''' otherwise '''
-        ''' they do not overlap '''
+        ''' they overlap '''
         return 1
-
-    def overlap(self, c_bis):
-        ''' center distance with respect to x-axis and y-axis '''
-        delta_x = c_bis.get_center()[0] - self.get_center()[0]
-        delta_y = c_bis.get_center()[1] - self.get_center()[1]
 
     def intersection_percentage(self, c_bis):
 
