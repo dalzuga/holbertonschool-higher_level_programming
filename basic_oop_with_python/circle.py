@@ -74,6 +74,14 @@ class Circle():
             ''' return 0% '''
             return 0;
 
+        ''' case 3: '''
+        ''' if one is inside the other and they do not kiss '''
+        if (d + R < r):
+            return (1.) * R2 / r2 * 100.
+        elif (d + r < R):
+            return 100
+
+
         area = r2 * math.acos((d2 + r2 - R2)/(2 * d * r)) + R2 * math.acos((d2 + R2 - r2)/(2 * d * R)) - (1./2) * math.sqrt((-d+r+R)*(d+r-R)*(d-r+R)*(d+r+R))
         
         return  ((area / (math.pi * r2)) * 100)
