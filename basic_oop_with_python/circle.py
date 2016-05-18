@@ -39,3 +39,23 @@ class Circle():
         ''' otherwise '''
         ''' they intersect '''
         return 1
+
+    def intersection_percentage(self, c_bis):
+
+        delta_x = c_bis.get_center()[0] - self.get_center()[0]
+        delta_y = c_bis.get_center()[1] - self.get_center()[1]
+        r = self.__radius
+        R = c_bis.__radius
+
+        ''' r2 and R2 are the square of the radius '''
+        r2 = r ** 2
+        R2 = R ** 2
+
+        ''' distance squared between the centers '''
+        d2 = delta_x ** 2 + delta_y ** 2
+        ''' distance between the centers '''
+        d = math.sqrt(delta_x ** 2 + delta_y ** 2)
+
+        area = r2 * math.acos((d2 + r2 - R2)/(2 * d * r)) + R2 * math.acos((d2 + R2 - r2)/(2 * d * R)) - (.5) * math.sqrt((-d+r+R)*(d+r-R)*(d-r+R)*(d+r+R))
+        
+        return  ((area / (math.pi * r2)) * 100)
