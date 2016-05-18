@@ -1,4 +1,3 @@
-#!/usr/bin/python
 from h_odd import odd
 
 print "%d" % odd(1)
