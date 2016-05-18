@@ -123,7 +123,6 @@ c2.name = "Earth"
 print "%s is %f%% inside %s" % (c2.name, c1.intersection_percentage(c2), c1.name)
 print "Expected: 100%\n"
 
-
 print "if they are inside each other but not kissing (take 2)"
 c1 = Circle(4)
 c1.set_center([0, 0])
@@ -138,6 +137,30 @@ print "Expected: some positive number\n"
 
 print "if they switch places (take 2)"
 c1 = Circle(1.9)
+c1.set_center([0, 2])
+c1.name = "Mars"
+
+c2 = Circle(4)
+c2.set_center([0, 0])
+c2.name = "Earth"
+
+print "%s is %f%% inside %s" % (c2.name, c1.intersection_percentage(c2), c1.name)
+print "Expected: 100%\n"
+
+print "if they are inside each other but not kissing (take 3)"
+c1 = Circle(4)
+c1.set_center([0, 0])
+c1.name = "Earth"
+
+c2 = Circle(1.1)
+c2.set_center([0, 2])
+c2.name = "Mars"
+
+print "%s is %f%% inside %s" % (c2.name, c1.intersection_percentage(c2), c1.name)
+print "Expected: some positive number\n"
+
+print "if they switch places (take 3)"
+c1 = Circle(1.1)
 c1.set_center([0, 2])
 c1.name = "Mars"
 
