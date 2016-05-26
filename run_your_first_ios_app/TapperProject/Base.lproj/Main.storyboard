@@ -18,10 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retrobg" translatesAutoresizingMaskIntoConstraints="NO" id="IDF-xq-qjh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retrobg" translatesAutoresizingMaskIntoConstraints="NO" id="IDF-xq-qjh" userLabel="imgBkg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tapper" translatesAutoresizingMaskIntoConstraints="NO" id="BU2-5z-2L7">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tapper" translatesAutoresizingMaskIntoConstraints="NO" id="BU2-5z-2L7" userLabel="imgTapper">
                                 <rect key="frame" x="180" y="42" width="240" height="128"/>
                                 <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                                 <constraints>
@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="width" constant="240" id="FTO-G4-Nlx"/>
                                 </constraints>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HK4-df-wOc">
+                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HK4-df-wOc" userLabel="btnPlay">
                                 <rect key="frame" x="221" y="459" width="158" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="78" id="Cws-sa-mHW"/>
@@ -37,7 +37,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="playbtn"/>
                             </button>
-                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many taps ?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4cC-fk-tIc">
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many taps ?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4cC-fk-tIc" userLabel="lblTaps">
                                 <rect key="frame" x="209" y="399" width="182" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="182" id="SxF-gQ-zzx"/>
@@ -46,7 +46,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8d-Zh-D0N">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8d-Zh-D0N" userLabel="btnCoin">
                                 <rect key="frame" x="178" y="161" width="244" height="268"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="244" id="1J0-aT-1o6"/>
@@ -54,7 +54,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="coin"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 Taps!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRb-GM-V1q">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 Taps!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRb-GM-V1q" userLabel="tfHowMany">
                                 <rect key="frame" x="221" y="415" width="158" height="84"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -80,6 +80,14 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IDF-xq-qjh" secondAttribute="bottom" id="yOQ-wn-rjv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnCoin" destination="f8d-Zh-D0N" id="3Qn-xI-jDV"/>
+                        <outlet property="btnPlay" destination="HK4-df-wOc" id="qL5-gJ-fSy"/>
+                        <outlet property="imgBkg" destination="IDF-xq-qjh" id="TVW-rD-V2c"/>
+                        <outlet property="imgTapper" destination="BU2-5z-2L7" id="SbG-Bl-AIO"/>
+                        <outlet property="lblTaps" destination="4cC-fk-tIc" id="sub-MX-WML"/>
+                        <outlet property="tfHowMany" destination="iRb-GM-V1q" id="svm-pb-ezK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
