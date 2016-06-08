@@ -1,5 +1,8 @@
 #!/usr/bin/python
 import sys
+
+''' check for usage '''
+
 if len(sys.argv) < 2:
     print "Please enter an action"
 elif (sys.argv[1] == "create"):
