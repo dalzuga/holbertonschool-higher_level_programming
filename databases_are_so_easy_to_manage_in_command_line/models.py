@@ -1,6 +1,8 @@
 import peewee
 
-my_models_db = peewee.SqliteDatabase("my_models.db", pragmas=(('foreign keys', True),))
+my_models_db = peewee.SqliteDatabase("my_models.db", pragmas=(
+('foreign keys', True),
+))
 
 class BaseModel(peewee.Model):
     id = peewee.PrimaryKeyField(unique=True)
