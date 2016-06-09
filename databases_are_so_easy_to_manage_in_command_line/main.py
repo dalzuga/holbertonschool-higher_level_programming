@@ -7,7 +7,7 @@ import models
 if len(sys.argv) < 2:
     print "Please enter an action"
 elif (sys.argv[1] == "create"):
-    models.School.create_table()
+    models.BaseModel.create_table()
     print "create"
 elif (sys.argv[1] == "print"):
     print "print"
