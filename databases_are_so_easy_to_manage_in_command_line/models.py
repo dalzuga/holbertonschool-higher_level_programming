@@ -30,7 +30,7 @@ class User(BaseModel):
         return "User: %s %s (%d)" % (self.first_name, self.last_name, self.id)
 
 class Student(User):
-    batch = peewee.ForeignKeyField(Batches, related_name='students', on_delete="CASCADE")
+    batch = peewee.ForeignKeyField(Batch, related_name='students', on_delete="CASCADE")
 
     def __str__(self):
         return "Student: %s %s (%d)" % (self.first_name, self.last_name, self.id)
