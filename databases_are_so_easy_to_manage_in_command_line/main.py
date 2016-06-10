@@ -2,6 +2,10 @@
 import sys
 import models
 
+''' to test, run the following command:
+rm my_models.db; ./main.py create; ./main.py insert school hi; ./main.py insert school there; ./main.py insert batch 1 0116sf; ./main.py insert student 1 25 Alzugaray Daniel
+'''
+
 ''' check for usage and process input '''
 if len(sys.argv) < 2:
     print "Please enter an action"
@@ -40,12 +44,15 @@ elif (sys.argv[1] == "insert"):
         else:
             school = models.School.create(name=sys.argv[3])
             school.save()
+            print "New " + sys.argv[2] + ": %s" % school
+
     elif (sys.argv[2] == "batch"):
             batch = models.Batch.create(
                 school=sys.argv[3],
                 name=sys.argv[4]
             )
             batch.save()
+            print "New " + sys.argv[2] + ": %s" % batch
     elif (sys.argv[2] == "student"):
             student = models.Student.create(
                 batch=sys.argv[3],
@@ -54,7 +61,7 @@ elif (sys.argv[1] == "insert"):
                 first_name=sys.argv[6]
             )
             student.save()
-    print "insert"
+            print "New " + sys.argv[2] + ": %s" % student
 elif (sys.argv[1] == "delete"):
     print "delete"
 else:

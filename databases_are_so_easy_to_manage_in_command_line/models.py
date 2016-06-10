@@ -24,7 +24,7 @@ class Batch(BaseModel):
         return "Batch: %s (%d)" % (self.name, self.id)
 
 class User(BaseModel):
-    first_name = peewee.CharField(128, null = False)
+    first_name = peewee.CharField(128, default="")
     last_name = peewee.CharField(128, null = False)
     age = peewee.IntegerField(null = False)
 
