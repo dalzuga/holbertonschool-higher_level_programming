@@ -20,6 +20,7 @@ elif (sys.argv[1] == "create"):
             models.Student
         ], safe=True)
     print "created tables"
+    models.my_models_db.close()
 elif (sys.argv[1] == "print"):
     if len(sys.argv) < 3:
         pass
