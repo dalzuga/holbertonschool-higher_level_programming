@@ -3,7 +3,7 @@ import sys
 import models
 
 ''' to test, run the following command:
-rm my_models.db; ./main.py create; ./main.py insert school hi; ./main.py insert school there; ./main.py insert batch 1 0116sf; ./main.py insert student 1 25 Alzugaray Daniel
+rm my_models.db; ./main.py create; ./main.py insert school hi; ./main.py insert school there; ./main.py insert batch 1 0116sf; ./main.py insert student 1 25 Alzugaray Daniel; ./main.py delete student 1; ./main.py print school; ./main.py print batch
 '''
 
 ''' check for usage and process input '''
@@ -37,7 +37,7 @@ elif (sys.argv[1] == "print"):
             print student
 elif (sys.argv[1] == "insert"):
     if len(sys.argv) < 3:
-        pass    
+        pass
     elif (sys.argv[2] == "school"):
         if len(sys.argv) < 4:
             print "School usage: school <name>"
@@ -45,7 +45,6 @@ elif (sys.argv[1] == "insert"):
             school = models.School.create(name=sys.argv[3])
             school.save()
             print "New " + sys.argv[2] + ": %s" % school
-
     elif (sys.argv[2] == "batch"):
             batch = models.Batch.create(
                 school=sys.argv[3],
@@ -63,6 +62,37 @@ elif (sys.argv[1] == "insert"):
             student.save()
             print "New " + sys.argv[2] + ": %s" % student
 elif (sys.argv[1] == "delete"):
-    print "delete"
+    if len(sys.argv) < 3:
+        pass
+    elif (sys.argv[2] == "school"):
+        if len(sys.argv) < 4:
+            print "Delete school usage: <model name> <id>"
+        else:
+            try:
+                school = models.School.get(id=sys.argv[3])
+                school.delete_instance()
+                print "Deleted: " + sys.argv[2] + ": %s" % school
+            except models.School.DoesNotExist:
+                print "Nothing to delete"
+    elif (sys.argv[2] == "batch"):
+        if len(sys.argv) < 4:
+            print "Delete batch usage: <model name> <id>"
+        else:
+            try:
+                batch = models.Batch.get(id=sys.argv[3])
+                batch.delete_instance()
+                "Deleted: " + sys.argv[2] + ": %s" % batch
+            except models.Batch.DoesNotExist:
+                print "Nothing to delete"                
+    elif (sys.argv[2] == "student"):
+        if len(sys.argv) < 4:
+            print "Delete batch usage: <model name> <id>"
+        else:
+            try:                
+                student = models.Student.get(id=sys.argv[3])
+                student.delete_instance()
+                "Deleted: " + sys.argv[2] + ": %s" % student
+            except models.Student.DoesNotExist:
+                print "Nothing to delete"
 else:
     print "Undefined action " + sys.argv[1]
