@@ -4,6 +4,7 @@ import models
 
 ''' to test, run the following command:
 chmod +x ./main.py; rm my_models.db; ./main.py create; ./main.py insert school hi; ./main.py insert school there; ./main.py insert batch 1 0116sf; ./main.py insert student 1 25 Alzugaray Daniel; ./main.py print school; ./main.py insert batch 2 "winter 2017"; ./main.py insert batch 1 "may batch"; ./main.py print_batch_by_school 1
+chmod +x ./main.py; rm my_models.db; ./main.py create; ./main.py insert school hi; ./main.py insert school there; ./main.py insert batch 1 0116sf; ./main.py insert student 1 25 Alzugaray Daniel; ./main.py print school; ./main.py insert batch 2 "winter 2017"; ./main.py insert batch 1 "may batch"; ./main.py print_student_by_batch 1
 '''
 
 ''' check for usage and process input '''
@@ -83,5 +84,12 @@ elif (sys.argv[1] == "print_batch_by_school"):
             print batch
     except models.School.DoesNotExist:
         print "School not found"
+elif (sys.argv[1] == "print_student_by_batch"):
+    try:
+        models.Batch.get(models.Batch.id == sys.argv[2])
+        for student in models.Student.select().where(models.Student.batch == sys.argv[2]):
+            print student
+    except models.Batch.DoesNotExist:
+        print "Batch not found"
 else:
     print "Undefined action " + sys.argv[1]
