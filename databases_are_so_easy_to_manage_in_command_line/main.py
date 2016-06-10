@@ -6,30 +6,54 @@ import models
 if len(sys.argv) < 2:
     print "Please enter an action"
 elif (sys.argv[1] == "create"):
-    models.BaseModel.create_table()
-    print "create"
+    models.my_models_db.connect()
+    print "connected"
+    models.my_models_db.create_tables(
+        [
+            models.School,
+            models.Batch,
+            models.User,
+            models.Student
+        ], safe=True)
+    print "created tables"
 elif (sys.argv[1] == "print"):
     if len(sys.argv) < 3:
         pass
     elif (sys.argv[2] == "school"):
-        print models.my_models_db.School()
+        for school in models.School().select():
+            print school
     elif (sys.argv[2] == "batch"):
-        print models.my_models_db.Batch()
+        for batch in models.Batch().select():
+            print batch
     elif (sys.argv[2] == "user"):
-        print models.my_models_db.User()
+        for user in models.User().select():
+            print user
     elif (sys.argv[2] == "student"):
-        print models.my_models_db.Student()
+        for student in models.Student().select():
+            print student
 elif (sys.argv[1] == "insert"):
     if len(sys.argv) < 3:
-        pass
+        pass    
     elif (sys.argv[2] == "school"):
-        models.School.create_table();
+        if len(sys.argv) < 4:
+            print "School usage: school <name>"
+        else:
+            school = models.School.create(name=sys.argv[3])
+            school.save()
     elif (sys.argv[2] == "batch"):
-        models.School.create_table();
-    elif (sys.argv[2] == "user"):
-        models.School.create_table();
+            batch = models.Batch.create(
+                school=sys.argv[3],
+                name=sys.argv[4]
+            )
+            batch.save()
     elif (sys.argv[2] == "student"):
-        models.School.create_table();
+            student = models.Student.create(
+                batch=sys.argv[3],
+                age=sys.argv[4],
+                last_name=sys.argv[5],
+                first_name=sys.argv[6]
+            )
+            student.save()
     print "insert"
 elif (sys.argv[1] == "delete"):
     print "delete"
