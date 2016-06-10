@@ -78,9 +78,10 @@ elif (sys.argv[1] == "delete"):
             print "Nothing to delete"
 elif (sys.argv[1] == "print_batch_by_school"):
     try:
+        models.School.get(models.School.id == sys.argv[2])
         for batch in models.Batch.select().where(models.Batch.school == sys.argv[2]):
             print batch
-    except models.Batch.DoesNotExist:
+    except models.School.DoesNotExist:
         print "School not found"
 else:
     print "Undefined action " + sys.argv[1]
