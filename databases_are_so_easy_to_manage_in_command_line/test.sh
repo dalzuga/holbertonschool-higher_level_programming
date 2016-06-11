@@ -18,3 +18,9 @@ rm my_models.db
 ./main.py print_student_by_school 1
 echo "print_family:"
 ./main.py print_family Stark
+echo "age_average":
+./main.py age_average
+echo "age_average batch 1":
+./main.py age_average 1
+echo "age_average batch 2":
+./main.py age_average 2

@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import sys
 import models
+import peewee
 
 ''' check for usage and process input '''
 if len(sys.argv) < 2:
@@ -111,5 +112,15 @@ elif (sys.argv[1] == "print_family"):
             print student
     except models.Student.DoesNotExist:
         print "Student not found"
+elif (sys.argv[1] == "age_average"):
+    if len(sys.argv) == 2:
+        print models.Student.select(peewee.fn.Avg(models.Student.age)).scalar()
+    else:
+        print (models.Student
+               .select(peewee.fn.Avg(models.Student.age))
+               .where(models.Student.batch == sys.argv[2])
+               .scalar()
+               )
+        
 else:
     print "Undefined action " + sys.argv[1]
