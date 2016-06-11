@@ -88,12 +88,17 @@ elif (sys.argv[1] == "print_student_by_batch"):
 elif (sys.argv[1] == "print_student_by_school"):
     try:
         models.School.get(models.School.id == sys.argv[2])
-        for student in (
+        '''        for student in (
             models.Student
             .select()
             .join(models.Batch)
             .where(models.Batch.school == sys.argv[2])
             ):
+            print student'''
+        for student in (models
+                        .Batch.select()
+                        .where(models.Batch.school == sys.argv[2])
+                        .get().students):
             print student
     except models.School.DoesNotExist:
         print "School not found"

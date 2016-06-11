@@ -14,3 +14,5 @@ rm my_models.db
 ./main.py insert student 2 15 Stark Sansa
 ./main.py insert student 2 30 "of Tarth" Brienne
 ./main.py print_student_by_school 2
+./main.py print_student_by_school 3
+./main.py print_student_by_school 1
