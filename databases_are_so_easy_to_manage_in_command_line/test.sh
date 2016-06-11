@@ -16,3 +16,5 @@ rm my_models.db
 ./main.py print_student_by_school 2
 ./main.py print_student_by_school 3
 ./main.py print_student_by_school 1
+echo "print_family:"
+./main.py print_family Stark

@@ -102,5 +102,14 @@ elif (sys.argv[1] == "print_student_by_school"):
             print student
     except models.School.DoesNotExist:
         print "School not found"
+elif (sys.argv[1] == "print_family"):
+    try:
+        models.Student.get(models.Student.last_name == sys.argv[2])
+        for student in (models
+                    .Student.select()
+                    .where(models.Student.last_name == sys.argv[2])):
+            print student
+    except models.Student.DoesNotExist:
+        print "Student not found"
 else:
     print "Undefined action " + sys.argv[1]
