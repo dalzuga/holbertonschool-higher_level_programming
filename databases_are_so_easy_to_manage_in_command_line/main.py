@@ -14,7 +14,6 @@ elif (sys.argv[1] == "create"):
             models.User,
             models.Student
         ], safe=True)
-    print "create"
     models.my_models_db.close()
 elif (sys.argv[1] == "print"):
     if (sys.argv[2] == "school"):
